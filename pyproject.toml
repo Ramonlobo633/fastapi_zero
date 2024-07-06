@@ -12,6 +12,8 @@ sqlalchemy = "^2.0.31"
 pydantic-settings = "^2.3.4"
 pyjwt = "^2.8.0"
 pwdlib = {extras = ["argon2"], version = "^0.2.0"}
+alembic = "^1.13.2"
+tzdata = "^2024.1"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -42,7 +44,7 @@ addopts = '-p no:warnings'
 [tool.taskipy.tasks]
 lint = 'ruff check . && ruff check . --diff'
 format = 'ruff check . --fix && ruff format .'
-run = 'fastapi dev fast_zero/app.py'
+run = 'fastapi dev fast_zero/api/app.py'
 pre_test = 'task lint'
 test = 'pytest -s -x --cov=fast_zero -vv'
 post_test = 'coverage html'
